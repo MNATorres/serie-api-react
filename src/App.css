@@ -1,5 +1,26 @@
 body {
-  display: flex;
-  background-color: rgb(148, 144, 144);
+  
+  background-color: rgb(212, 212, 212);
 }
 
+.App {
+  display: flex;
+  align-items: baseline;
+  margin: 50px;
+}
+
+.capitulo-info {
+  margin-left: 30px;
+  background-color: white;
+  padding: 10px;
+}
+
+.img-serie{
+  width: 700px;
+  
+}
+
+.img-moon {
+  display: flex;
+  justify-content: center;
+}
