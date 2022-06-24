@@ -2,6 +2,10 @@
     width: 30%;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+
 }
 
 .capitulos-buscador button{

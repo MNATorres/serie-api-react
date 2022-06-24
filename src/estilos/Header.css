@@ -1,0 +1,12 @@
+.header-componente {
+    height: 75px;
+    width: 100%;
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20191025/pngtree-purple-smoke-in-dark-background-image_320078.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: white;
+}

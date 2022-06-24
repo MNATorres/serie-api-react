@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Header from './componentes/Header'
 import Buscador from "./componentes/Buscador";
 import Capitulo from "./componentes/Capitulo";
 
@@ -26,20 +27,33 @@ function App() {
 
   return (
     <div className="App">
-      <div className='buscador-app'>
-      <Buscador searchEpisode={searchEpisode} />
-      <Capitulo capitulo="" />
+      <Header />
+      <div className='contenedor-padre'>
+        
+      <div className="buscador-app">
+        <Buscador searchEpisode={searchEpisode} />
+        <Capitulo capitulo="" />
       </div>
       <div className="capitulo-info">
-        {serie && <h1>{serie.original_name}</h1>}
-        <h3>Season {serie.number_of_seasons}</h3>
-        <h4>Resumen</h4>
-        <p>{serie.overview}</p>
-        <div className='img-moon'>
-        <img 
-        className='img-serie'
-        src={`${baseImg}${serie.poster_path}`}/>
-        </div>
+        {serie && (
+          <>
+            <h1>{serie.original_name}</h1>
+            <h3>Season {serie.number_of_seasons}</h3>
+            <h4>Resumen</h4>
+            <p>{serie.overview}</p>
+            <div className="img-moon">
+              <img
+                className="img-serie"
+                src={`${baseImg}${serie.poster_path}`}
+              />
+            </div>
+            <p>Producido por {serie.production_companies[0].name}</p>
+            <img 
+            className='marvel'
+            src={`${baseImg}${serie.production_companies[0].logo_path}`} />
+          </>
+        )}
+      </div>
       </div>
     </div>
   );

@@ -3,10 +3,10 @@ body {
   background-color: rgb(212, 212, 212);
 }
 
-.App {
+.contenedor-padre {
   display: flex;
   align-items: baseline;
-  margin: 50px;
+  
 }
 
 .capitulo-info {
@@ -23,4 +23,8 @@ body {
 .img-moon {
   display: flex;
   justify-content: center;
+}
+
+.marvel {
+  width: 100px;
 }
