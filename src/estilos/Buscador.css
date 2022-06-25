@@ -4,7 +4,7 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
-
+    color: white;
 
 }
 
@@ -17,6 +17,6 @@
 }
 
 .capitulos-buscador button:hover{
-    background-color: black;
-    color: white;
+    background-color: rgb(15, 125, 184);
+    color: rgb(0, 0, 0);
 }
