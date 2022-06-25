@@ -1,9 +1,10 @@
 .header-componente {
-    height: 75px;
+    height: 200px;
     width: 100%;
-    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20191025/pngtree-purple-smoke-in-dark-background-image_320078.jpg');
+    background-image: url('https://www.xtrafondos.com/descargar.php?id=3427&resolucion=4300x2418');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 0px -30px;
     display: flex;
     align-items: center;
     text-align: center;

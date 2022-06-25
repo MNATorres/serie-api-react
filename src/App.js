@@ -3,6 +3,8 @@ import "./App.css";
 import Header from './componentes/Header'
 import Buscador from "./componentes/Buscador";
 import Capitulo from "./componentes/Capitulo";
+import ReactPlayer from 'react-player'
+
 
 //92749
 function App() {
@@ -51,6 +53,20 @@ function App() {
             <img 
             className='marvel'
             src={`${baseImg}${serie.production_companies[0].logo_path}`} />
+            <div className="videos">
+            <ReactPlayer 
+            url='https://www.youtube.com/watch?v=0STDZqXCTxs&ab_channel=MarvelLatinoam%C3%A9ricaOficial'
+            width='100%'
+             />
+             <ReactPlayer 
+            url='https://www.youtube.com/watch?v=27y7Dwvhq7g&ab_channel=ScenesIlove'
+            width='100%'
+             />
+             <ReactPlayer 
+            url='https://www.youtube.com/watch?v=w1AP1iaTcUA&ab_channel=MovieGasm.com'
+            width='100%'
+             />
+             </div>
           </>
         )}
       </div>
