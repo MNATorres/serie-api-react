@@ -1,6 +1,8 @@
+import '../estilos/Footer.css';
+
 function Footer() {
     return(
-        <div>
+        <div className='footer'>
             <p>Este es el Footer</p>
         </div>
     );
