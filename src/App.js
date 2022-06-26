@@ -30,7 +30,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header 
+      logoMarvel={`${baseImg}${serie.production_companies[0].logo_path}`}/>
       <div className='contenedor-padre'>
         
       <div className="buscador-app">
