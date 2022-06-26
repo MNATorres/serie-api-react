@@ -4,7 +4,7 @@ import Header from './componentes/Header'
 import Buscador from "./componentes/Buscador";
 import Capitulo from "./componentes/Capitulo";
 import ReactPlayer from 'react-player';
-import Footer from './componentes/Footer';
+import Header from './componentes/Header';
 
 
 //92749
