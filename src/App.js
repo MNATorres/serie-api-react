@@ -29,7 +29,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
       <Header />
       <div className="contenedor-padre">
         <div className="buscador-app">
@@ -50,24 +49,6 @@ function App() {
                 />
               </div>
               <p>Producido por {serie.production_companies[0].name}</p>
-=======
-      <Header 
-      logoMarvel={`${baseImg}${serie.production_companies[0].logo_path}`}/>
-      <div className='contenedor-padre'>
-        
-      <div className="buscador-app">
-        <Buscador searchEpisode={searchEpisode} />
-        <Capitulo capitulo="" />
-      </div>
-      <div className="capitulo-info">
-        {serie && (
-          <>
-            <h1>{serie.original_name}</h1>
-            <h3>Season {serie.number_of_seasons}</h3>
-            <h4>Resumen</h4>
-            <p>{serie.overview}</p>
-            <div className="img-moon">
->>>>>>> dca3ebe8b44f47046077bc656ae53c76ec14d844
               <img
                 className="marvel"
                 src={`${baseImg}${serie.production_companies[0].logo_path}`}
