@@ -4,7 +4,7 @@ import Header from './componentes/Header'
 import Buscador from "./componentes/Buscador";
 import Capitulo from "./componentes/Capitulo";
 import ReactPlayer from 'react-player';
-import Header from './componentes/Header';
+import Footer from './componentes/Footer';
 
 
 //92749
@@ -68,7 +68,7 @@ function App() {
             width='100%'
              />
              </div>
-             <Header />
+             <Footer />
           </>
         )}
       </div>
