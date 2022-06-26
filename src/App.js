@@ -19,8 +19,16 @@ function App() {
     setSerie(responseJSON);
   };
 
+  const url = "https://api.themoviedb.org/3/tv/92749/season/1/episode/1?api_key=133f4d8b4fed128b27fa0bb407956c56&language=es-ES";
+  const fetchApi2 = async () => {
+    const response2 = await fetch(url);
+    const responseJSON2 = await response2.json();
+    console.log(responseJSON2);
+  };
+
   useEffect(() => {
     fetchApi();
+    fetchApi2();
   }, []);
 
   const searchEpisode = (number) => {
@@ -30,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Header 
-      logoMarvel={`${baseImg}${serie.production_companies[0].logo_path}`} />
+      logoMarvel=""/>
       <div className="contenedor-padre">
         <div className="buscador-app">
           <Buscador searchEpisode={searchEpisode} />
@@ -68,7 +76,6 @@ function App() {
                   width="100%"
                 />
               </div>
-              
             </>
           )}
         </div>
