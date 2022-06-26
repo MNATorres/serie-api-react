@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./componentes/Header";
+import Header from './componentes/Header'
 import Buscador from "./componentes/Buscador";
 import Capitulo from "./componentes/Capitulo";
-import ReactPlayer from "react-player";
-import Footer from "./componentes/Footer";
+import ReactPlayer from 'react-player';
+import Footer from './componentes/Footer';
+
 
 //92749
 function App() {
@@ -23,55 +24,55 @@ function App() {
     fetchApi();
   }, []);
 
-  const searchEpisode = (number) => {
+  const searchEpisode = number => {
     console.log(number);
   };
 
   return (
     <div className="App">
       <Header />
-      <div className="contenedor-padre">
-        <div className="buscador-app">
-          <Buscador searchEpisode={searchEpisode} />
-          <Capitulo capitulo="" />
-        </div>
-        <div className="capitulo-info">
-          {serie && (
-            <>
-              <h1>{serie.original_name}</h1>
-              <h3>Season {serie.number_of_seasons}</h3>
-              <h4>Resumen</h4>
-              <p>{serie.overview}</p>
-              <div className="img-moon">
-                <img
-                  className="img-serie"
-                  src={`${baseImg}${serie.poster_path}`}
-                />
-              </div>
-              <p>Producido por {serie.production_companies[0].name}</p>
-              <img
-                className="marvel"
-                src={`${baseImg}${serie.production_companies[0].logo_path}`}
-              />
-              <div className="videos">
-                <ReactPlayer
-                  url="https://www.youtube.com/watch?v=0STDZqXCTxs&ab_channel=MarvelLatinoam%C3%A9ricaOficial"
-                  width="100%"
-                />
-                <ReactPlayer
-                  url="https://www.youtube.com/watch?v=27y7Dwvhq7g&ab_channel=ScenesIlove"
-                  width="100%"
-                />
-                <ReactPlayer
-                  url="https://www.youtube.com/watch?v=w1AP1iaTcUA&ab_channel=MovieGasm.com"
-                  width="100%"
-                />
-              </div>
-            </>
-          )}
-        </div>
+      <div className='contenedor-padre'>
+        
+      <div className="buscador-app">
+        <Buscador searchEpisode={searchEpisode} />
+        <Capitulo capitulo="" />
       </div>
-      <Footer />
+      <div className="capitulo-info">
+        {serie && (
+          <>
+            <h1>{serie.original_name}</h1>
+            <h3>Season {serie.number_of_seasons}</h3>
+            <h4>Resumen</h4>
+            <p>{serie.overview}</p>
+            <div className="img-moon">
+              <img
+                className="img-serie"
+                src={`${baseImg}${serie.poster_path}`}
+              />
+            </div>
+            <p>Producido por {serie.production_companies[0].name}</p>
+            <img 
+            className='marvel'
+            src={`${baseImg}${serie.production_companies[0].logo_path}`} />
+            <div className="videos">
+            <ReactPlayer 
+            url='https://www.youtube.com/watch?v=0STDZqXCTxs&ab_channel=MarvelLatinoam%C3%A9ricaOficial'
+            width='100%'
+             />
+             <ReactPlayer 
+            url='https://www.youtube.com/watch?v=27y7Dwvhq7g&ab_channel=ScenesIlove'
+            width='100%'
+             />
+             <ReactPlayer 
+            url='https://www.youtube.com/watch?v=w1AP1iaTcUA&ab_channel=MovieGasm.com'
+            width='100%'
+             />
+             </div>
+             <Header />
+          </>
+        )}
+      </div>
+      </div>
     </div>
   );
 }
