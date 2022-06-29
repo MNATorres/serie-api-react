@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Header 
-      logoMarvel=""/>
+      logoMarvel={serie ? `${baseImg}${serie.production_companies[0].logo_path}` : ''}/>
       <div className="contenedor-padre">
         <div className="buscador-app">
           <Buscador searchEpisode={searchEpisode} />
@@ -212,3 +212,6 @@ export default App;
 //   "vote_average":8.2,
 //   "vote_count":1096
 // }
+
+
+}
