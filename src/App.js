@@ -9,76 +9,88 @@ import Footer from "./componentes/Footer";
 //92749
 function App() {
   const [serie, setSerie] = useState();
+  const [episode, setEpisode] = useState(null);
 
   const baseImg = "https://image.tmdb.org/t/p/original";
   const apikey = "api_key=133f4d8b4fed128b27fa0bb407956c56";
   const base = "https://api.themoviedb.org/3";
-  const fetchApi = async () => {
+  const fetchSerieInformation = async () => {
     const response = await fetch(`${base}/tv/92749?${apikey}&language=es-ES`);
     const responseJSON = await response.json();
     setSerie(responseJSON);
   };
 
-  const url = "https://api.themoviedb.org/3/tv/92749/season/1/episode/1?api_key=133f4d8b4fed128b27fa0bb407956c56&language=es-ES";
-  const fetchApi2 = async () => {
-    const response2 = await fetch(url);
+  const url = episode =>
+    `https://api.themoviedb.org/3/tv/92749/season/1/episode/${episode}?api_key=133f4d8b4fed128b27fa0bb407956c56&language=es-ES`;
+  const fetchEpisodeInfromation = async episode => {
+    const response2 = await fetch(url(episode));
     const responseJSON2 = await response2.json();
     console.log(responseJSON2);
   };
 
   useEffect(() => {
-    fetchApi();
-    fetchApi2();
+    if (episode == null) return;
+    fetchEpisodeInfromation(episode);
+  }, [episode]);
+
+  useEffect(() => {
+    fetchSerieInformation();
   }, []);
 
-  const searchEpisode = (number) => {
-    console.log(number);
+  const searchEpisode = newEpisodeNumber => {
+    console.log(newEpisodeNumber);
+    setEpisode(newEpisodeNumber);
   };
 
   return (
     <div className="App">
-      <Header 
-      logoMarvel={serie ? `${baseImg}${serie.production_companies[0].logo_path}` : ''}/>
+      <Header
+        logoMarvel={
+          serie ? `${baseImg}${serie.production_companies[0].logo_path}` : ""
+        }
+      />
       <div className="contenedor-padre">
         <div className="buscador-app">
           <Buscador searchEpisode={searchEpisode} />
           <Capitulo capitulo="" />
         </div>
-        <div className="capitulo-info">
-          {serie && (
-            <>
-              <h1>{serie.original_name}</h1>
-              <h3>Season {serie.number_of_seasons}</h3>
-              <h4>Resumen</h4>
-              <p>{serie.overview}</p>
-              <div className="img-moon">
+        {episode == null && (
+          <div className="capitulo-info">
+            {serie && (
+              <>
+                <h1>{serie.original_name}</h1>
+                <h3>Season {serie.number_of_seasons}</h3>
+                <h4>Resumen</h4>
+                <p>{serie.overview}</p>
+                <div className="img-moon">
+                  <img
+                    className="img-serie"
+                    src={`${baseImg}${serie.poster_path}`}
+                  />
+                </div>
+                <p>Producido por {serie.production_companies[0].name}</p>
                 <img
-                  className="img-serie"
-                  src={`${baseImg}${serie.poster_path}`}
+                  className="marvel"
+                  src={`${baseImg}${serie.production_companies[0].logo_path}`}
                 />
-              </div>
-              <p>Producido por {serie.production_companies[0].name}</p>
-              <img
-                className="marvel"
-                src={`${baseImg}${serie.production_companies[0].logo_path}`}
-              />
-              <div className="videos">
-                <ReactPlayer
-                  url="https://www.youtube.com/watch?v=0STDZqXCTxs&ab_channel=MarvelLatinoam%C3%A9ricaOficial"
-                  width="100%"
-                />
-                <ReactPlayer
-                  url="https://www.youtube.com/watch?v=27y7Dwvhq7g&ab_channel=ScenesIlove"
-                  width="100%"
-                />
-                <ReactPlayer
-                  url="https://www.youtube.com/watch?v=w1AP1iaTcUA&ab_channel=MovieGasm.com"
-                  width="100%"
-                />
-              </div>
-            </>
-          )}
-        </div>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+      <div className="videos">
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=0STDZqXCTxs&ab_channel=MarvelLatinoam%C3%A9ricaOficial"
+          width="100%"
+        />
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=27y7Dwvhq7g&ab_channel=ScenesIlove"
+          width="100%"
+        />
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=w1AP1iaTcUA&ab_channel=MovieGasm.com"
+          width="100%"
+        />
       </div>
       <Footer />
     </div>
@@ -213,5 +225,4 @@ export default App;
 //   "vote_count":1096
 // }
 
-
-}
+//}
