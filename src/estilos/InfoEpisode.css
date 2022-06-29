@@ -1,0 +1,17 @@
+.info-episode {
+    box-sizing: border-box;
+    background-color: rgb(3, 7, 28);
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.img-capitulo {
+    width: 1000px;    
+}
+
+.texto-crew {
+   
+}

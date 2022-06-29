@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import '../estilos/InfoEpisode.css';
+import { elementRoles } from "aria-query";
 
 function InfoEpisode({ episodeNumber }) {
   const [episode, setEpisode] = useState(null);
@@ -26,7 +28,9 @@ function InfoEpisode({ episodeNumber }) {
         <h2>{name}</h2>
         <p>{overview}</p>
         <img className="img-capitulo" src={`https://image.tmdb.org/t/p/original${still_path}`} />
-        <p>{crew.join(',')}</p>
+        <p className='texto-crew'>{crew.map((element) => {
+          return element.job
+        }).join(',')}</p>
       </div>
     );
   }

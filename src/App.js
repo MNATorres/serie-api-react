@@ -44,9 +44,11 @@ function App() {
         <div className="buscador-app">
           <Buscador searchEpisode={searchEpisode} />
           
-        </div>
+        </div><div className="capitulo-info">
+
         {episode == null && (
-          <div className="capitulo-info">
+          <div>
+
             {serie && (
               <>
                 <h1>{serie.original_name}</h1>
@@ -69,7 +71,8 @@ function App() {
           </div>
         )}
       </div>
-      {episode != null && <InfoEpisode episodeNumber={episode} />}
+      {episode != null && <InfoEpisode episodeNumber={episode} />} 
+      </div>
       <div className="videos">
         <ReactPlayer
           url="https://www.youtube.com/watch?v=0STDZqXCTxs&ab_channel=MarvelLatinoam%C3%A9ricaOficial"
