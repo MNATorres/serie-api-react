@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./componentes/Header";
 import Buscador from "./componentes/Buscador";
-import Capitulo from "./componentes/Capitulo";
+import InfoEpisode from "./componentes/InfoEpisode"
 import ReactPlayer from "react-player";
 import Footer from "./componentes/Footer";
 
@@ -20,18 +20,9 @@ function App() {
     setSerie(responseJSON);
   };
 
-  const url = episode =>
-    `https://api.themoviedb.org/3/tv/92749/season/1/episode/${episode}?api_key=133f4d8b4fed128b27fa0bb407956c56&language=es-ES`;
-  const fetchEpisodeInfromation = async episode => {
-    const response2 = await fetch(url(episode));
-    const responseJSON2 = await response2.json();
-    console.log(responseJSON2);
-  };
+  
 
-  useEffect(() => {
-    if (episode == null) return;
-    fetchEpisodeInfromation(episode);
-  }, [episode]);
+
 
   useEffect(() => {
     fetchSerieInformation();
@@ -52,7 +43,7 @@ function App() {
       <div className="contenedor-padre">
         <div className="buscador-app">
           <Buscador searchEpisode={searchEpisode} />
-          <Capitulo capitulo="" />
+          
         </div>
         {episode == null && (
           <div className="capitulo-info">
@@ -78,6 +69,7 @@ function App() {
           </div>
         )}
       </div>
+      {episode != null && <InfoEpisode episodeNumber={episode} />}
       <div className="videos">
         <ReactPlayer
           url="https://www.youtube.com/watch?v=0STDZqXCTxs&ab_channel=MarvelLatinoam%C3%A9ricaOficial"
